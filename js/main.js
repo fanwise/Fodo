@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import Dimensions from 'Dimensions';
+import AddTodo from './container/addTodo'
 import TodoList from './components/todoList'
 
 var { height, width } = Dimensions.get('window');
@@ -17,6 +18,7 @@ export default class Main extends Component {
   render() {
     return (
       <View style={this.containerStyle()}>
+        <AddTodo></AddTodo>
         <TodoList></TodoList>
       </View>
     );
