@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import {View, Text } from 'react-native';
+import { View } from 'react-native';
 import Dimensions from 'Dimensions';
+import TodoList from './components/todoList'
 
 var { height, width } = Dimensions.get('window');
 
 export default class Main extends Component {
-
   containerStyle = () => {
     return {
       flexGrow: 1,
@@ -17,7 +17,7 @@ export default class Main extends Component {
   render() {
     return (
       <View style={this.containerStyle()}>
-        <Text>fodo</Text>
+        <TodoList></TodoList>
       </View>
     );
   }
