@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import Dimensions from 'Dimensions';
-import AddTodo from './container/addTodo'
-import TodoList from './components/todoList'
+import AddTodo from './container/addTodo';
+import TodoList from './components/todoList';
+import Filter from './components/filter';
 
 var { height, width } = Dimensions.get('window');
 
@@ -20,6 +21,7 @@ export default class Main extends Component {
       <View style={this.containerStyle()}>
         <AddTodo></AddTodo>
         <TodoList></TodoList>
+        <Filter></Filter>
       </View>
     );
   }
