@@ -7,7 +7,7 @@ export default class FilterButton extends Component {
     return (
       <View style={styles.container}>
         <TouchableHighlight style={styles.touchableHighlight} underlayColor={Color.button} onPress={this.props.setFilter}>
-          <Text style={styles.text}>{this.props.title}</Text>
+          <Text style={this.props.title === this.props.activieFilter ? styles.selectedText : styles.text}>{this.props.title}</Text>
         </TouchableHighlight>
       </View>
     );
@@ -26,6 +26,10 @@ const styles = StyleSheet.create({
   },
   text: {
     color: Color.white,
+    fontSize: 16,
+  },
+  selectedText: {
+    color: Color.button,
     fontSize: 16,
   }
 });
