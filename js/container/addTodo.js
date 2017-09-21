@@ -14,12 +14,13 @@ class AddTodo extends Component {
   onPressAddButton = () => {
     if (this.state.text.trim()) {
       this.props.dispatch(addTodo(this.state.text));
+      this.refs['textInput'].setNativeProps({text: ''});
     }
   }
   render() {
     return (
       <View style={styles.container}>
-        <TextInput
+        <TextInput ref={'textInput'}
           style={styles.textInput}
           placeholder={'Add Todo'}
           onChangeText={(text) => this.setState({ text })}
