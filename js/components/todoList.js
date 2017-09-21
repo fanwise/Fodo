@@ -4,14 +4,14 @@ import Todo from './todo'
 
 export default class TodoList extends Component {
   renderItem = ({ item }) => {
-    return <Todo isCompleted={item.isCompleted} content={item.content} onToggleTodo={() => null}></Todo>
+    return <Todo isCompleted={item.isCompleted} content={item.content} onToggleTodo={() => this.props.onToggleTodo(item.key)}></Todo>
   };
 
   render() {
     return (
       <View style={styles.container}>
         <FlatList
-          data={[{ key: 1, isCompleted: true, content: 'todo' }]}
+          data={this.props.todos}
           renderItem={this.renderItem} />
       </View>
     );

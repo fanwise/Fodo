@@ -3,14 +3,10 @@ import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 import Color from '../utils/color';
 
 export default class FilterButton extends Component {
-  onPressButton = () => {
-
-  }
-
   render() {
     return (
       <View style={styles.container}>
-        <TouchableHighlight style={styles.touchableHighlight} underlayColor={Color.button} onPress={this.onPressButton}>
+        <TouchableHighlight style={styles.touchableHighlight} underlayColor={Color.button} onPress={this.props.setFilter}>
           <Text style={styles.text}>{this.props.title}</Text>
         </TouchableHighlight>
       </View>

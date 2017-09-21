@@ -7,9 +7,9 @@ const getTodos = (todos, filter) => {
     case filters.ALL:
       return todos
     case filters.COMPLETED:
-      return todos.filter(t => t.completed)
+      return todos.filter(t => t.isCompleted)
     case filters.ACTIVED:
-      return todos.filter(t => !t.completed)
+      return todos.filter(t => !t.isCompleted)
   }
 }
 
@@ -21,7 +21,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onToggleTodo: (key) => dispatch(filters(key))
+    onToggleTodo: (key) => dispatch(toggleTodo(key))
   }
 }
 

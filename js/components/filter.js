@@ -5,18 +5,12 @@ import Color from '../utils/color';
 import { filters } from '../action'
 
 export default class Filter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    }
-  }
   render() {
     return (
       <View style={styles.container}>
-        <FilterButton title={filters.ALL}></FilterButton>
-        <FilterButton title={filters.COMPLETED}></FilterButton>
-        <FilterButton title={filters.ACTIVED}></FilterButton>
+        <FilterButton activieFilter={this.props.filter} title={filters.ALL} setFilter={() => this.props.setFilter(filters.ALL)}></FilterButton>
+        <FilterButton activieFilter={this.props.filter} title={filters.COMPLETED} setFilter={() => this.props.setFilter(filters.COMPLETED)}></FilterButton>
+        <FilterButton activieFilter={this.props.filter} title={filters.ACTIVED} setFilter={() => this.props.setFilter(filters.ACTIVED)}></FilterButton>
       </View>
     );
   }

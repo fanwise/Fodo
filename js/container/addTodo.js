@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { View, Text, TextInput, TouchableHighlight, StyleSheet } from 'react-native';
 import Color from '../utils/color';
+import { addTodo } from '../action';
 
-export default class AddTodo extends Component {
+class AddTodo extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,7 +12,9 @@ export default class AddTodo extends Component {
     }
   }
   onPressAddButton = () => {
-
+    if (this.state.text.trim()) {
+      this.props.dispatch(addTodo(this.state.text));
+    }
   }
   render() {
     return (
@@ -18,7 +22,7 @@ export default class AddTodo extends Component {
         <TextInput
           style={styles.textInput}
           placeholder={'Add Todo'}
-          onChangeText={(text) => this.setState({text})}
+          onChangeText={(text) => this.setState({ text })}
         />
         <TouchableHighlight style={styles.touchableHighlight} underlayColor={Color.buttonActivity} onPress={this.onPressAddButton}>
           <Text style={styles.text}>Add</Text>
@@ -59,3 +63,5 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   }
 });
+
+export default connect()(AddTodo)

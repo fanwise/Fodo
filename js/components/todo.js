@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Switch, StyleSheet } from 'react-native';
+import Color from '../utils/color';
 
 export default class Todo extends Component {
   render() {
@@ -9,7 +10,7 @@ export default class Todo extends Component {
           style={styles.switch}
           value={this.props.isCompleted}
           onValueChange={this.props.onToggleTodo} />
-        <Text style={styles.text}>{this.props.content}</Text>
+        <Text style={[styles.text, this.props.isCompleted && styles.textCompleted]}>{this.props.content}</Text>
       </View>
     );
   }
@@ -30,5 +31,9 @@ const styles = StyleSheet.create({
     flex: 0.8,
     alignSelf: 'center',
     fontSize: 18,
+  },
+  textCompleted: {
+    color: Color.grey,
+    textDecorationLine: 'line-through',
   }
 });
