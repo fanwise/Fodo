@@ -4,7 +4,12 @@ import Todo from './todo'
 
 export default class TodoList extends Component {
   renderItem = ({ item }) => {
-    return <Todo isCompleted={item.isCompleted} content={item.content} onToggleTodo={() => this.props.onToggleTodo(item.key)}></Todo>
+    return <Todo
+      isCompleted={item.isCompleted}
+      content={item.content}
+      onToggleTodo={() => this.props.onToggleTodo(item.key)}
+      onDeleteTodo={() => this.props.onDeleteTodo(item.key)}>
+    </Todo>
   };
 
   render() {
