@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import FilterButton from './filterButton';
 import Color from '../utils/color';
-
+import { filters } from '../action'
 
 export default class Filter extends Component {
   constructor(props) {
@@ -14,9 +14,9 @@ export default class Filter extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <FilterButton title={'ALL'}></FilterButton>
-        <FilterButton title={'COMPLETED'}></FilterButton>
-        <FilterButton title={'ACTIVE'}></FilterButton>
+        <FilterButton title={filters.ALL}></FilterButton>
+        <FilterButton title={filters.COMPLETED}></FilterButton>
+        <FilterButton title={filters.ACTIVED}></FilterButton>
       </View>
     );
   }
